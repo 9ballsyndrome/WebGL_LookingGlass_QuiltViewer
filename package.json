@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --disableHostCheck",
+    "lint": "tslint --project tslint.json",
+    "format": "tslint --project tslint.json --fix"
+  },
+  "devDependencies": {
+    "@types/gl-matrix": "2.4.5",
+    "@types/webgl2": "0.0.4",
+    "ts-loader": "5.3.3",
+    "tslint": "5.12.1",
+    "typescript": "3.3.3",
+    "webpack": "4.29.3",
+    "webpack-cli": "3.2.3",
+    "webpack-dev-server": "3.1.14"
+  },
+  "dependencies": {
+    "gl-matrix": "3.0.0"
+  },
+  "license": "MIT",
+  "private": true
+}
