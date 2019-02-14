@@ -3623,21 +3623,15 @@ class Main_Main {
             document.body.className = 'error';
             return;
         }
-        context.clearColor(0.0, 0.0, 0.0, 1.0);
+        context.clearColor(0.2, 0.2, 0.2, 1.0);
         context.enable(context.CULL_FACE);
         context.pixelStorei(context.UNPACK_FLIP_Y_WEBGL, 1);
         this.context = context;
         this.holoplay = new HoloPlay_HoloPlay();
         this.holoplay.creatProgram(context);
         await this.holoplay.initCalibration();
-        const image = await this.loadImage('assets/quiltscreensaver.png');
-        this.textureList = [{
-                texture: this.createTexture(image),
-                tileX: 4,
-                tileY: 8
-            }];
-        this.currentTextureIndex = 0;
-        await this.setTexture();
+        this.textureList = [];
+        this.currentTextureIndex = -1;
         window.addEventListener('resize', () => this.onRresize());
         this.onRresize();
         this.setupFullScreen();
@@ -3653,11 +3647,13 @@ class Main_Main {
         };
         window.addEventListener('gamepadconnected', (event) => this.gamepadHandler(event, true));
         window.addEventListener('gamepaddisconnected', (event) => this.gamepadHandler(event, false));
-        this.render();
+        context.clear(context.COLOR_BUFFER_BIT);
     }
     render() {
-        // render
-        this.holoplay.renderView(this.context);
+        if (this.textureList.length) {
+            // render
+            this.holoplay.renderView(this.context);
+        }
     }
     onRresize() {
         const width = window.innerWidth;
@@ -3702,7 +3698,7 @@ class Main_Main {
             this.currentTextureIndex = oldLength;
             await this.setTexture();
             this.render();
-            document.getElementById('howtouse').hidden = true;
+            document.getElementById('howtouse').style.display = 'none';
         }
     }
     async traverseEntry(list, entry) {
