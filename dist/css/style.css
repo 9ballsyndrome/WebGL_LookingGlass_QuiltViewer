@@ -1,24 +1,9 @@
-html {
-    height: 100%;
-}
-
 body {
     margin: 0;
     padding: 0;
     background-color: rgb(20%, 20%, 20%);
     overflow: hidden;
     font-family: sans-serif;
-    height: 100%;
-}
-
-#contents {
-    height: 100%;
-}
-
-#myCanvas {
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }
 
 body.error {
@@ -61,14 +46,16 @@ body.error #error {
 }
 
 #howtouse {
-    position: relative;
+    position: absolute;
+    top: 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    width: 100%;
     height: 100%;
 }
+
 #howtouse p {
-    text-align: center;
     font-weight: bold;
     font-size: 30px;
     color: #FFFFFF;
