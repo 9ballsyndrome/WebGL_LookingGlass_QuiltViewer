@@ -79,7 +79,7 @@ export class HoloPlay
 
       const ws:WebSocket = new WebSocket(HoloPlay.WEBSOCKET_URL);
 
-      const timeout:number = setTimeout(() =>
+      const timeout:any = setTimeout(() =>
       {
         console.log('Calibration not found.');
         ws.close();

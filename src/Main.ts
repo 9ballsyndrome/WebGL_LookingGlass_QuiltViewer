@@ -1,5 +1,6 @@
 import {determineTilingType} from './project/determineTilingType';
 import {HoloPlay} from './project/HoloPlay';
+import {LeapMotion} from './project/LeapMotion';
 
 export class Main
 {
@@ -11,6 +12,8 @@ export class Main
 
   private holoplay:HoloPlay;
   private holoplayGamepad:HoloplayGamepadState;
+
+  private leap:LeapMotion;
 
   constructor()
   {
@@ -61,6 +64,10 @@ export class Main
     };
     window.addEventListener('gamepadconnected', (event:GamepadEvent) => this.gamepadHandler(event, true));
     window.addEventListener('gamepaddisconnected', (event:GamepadEvent) => this.gamepadHandler(event, false));
+
+    this.leap = new LeapMotion();
+    this.leap.addEventListener('leapRight', (event:GamepadEvent) => this.changeImage(true));
+    this.leap.addEventListener('leapLeft', (event:GamepadEvent) => this.changeImage(false));
 
     context.clear(context.COLOR_BUFFER_BIT);
   }
