@@ -2,6 +2,8 @@
 
 This repository shows [The Looking Glass](https://lookingglassfactory.com/) demo which displays quilt image using web browser(WebGL).
 
+[![webgl-lookingglass_quiltviewer_demo.gif](https://raw.githubusercontent.com/9ballsyndrome/WebGL_LookingGlass_QuiltViewer/master/document/webgl-lookingglass_quiltviewer_demo.gif)](https://9ballsyndrome.github.io/WebGL_LookingGlass_QuiltViewer/dist/)
+
 - [View demo (Make sure you are on a system with WebGL 2.0 enabled)](https://9ballsyndrome.github.io/WebGL_LookingGlass_QuiltViewer/dist/)
 
 ## System requirements
